@@ -1,0 +1,236 @@
+<script type="text/javascript" src="frameworks/jquery-2.1.3.js"></script>
+<link href="assets/css/bootstrap.css" rel="stylesheet" />
+<link href="css/bootstrap.css.map" rel="stylesheet">
+<script type="text/javascript" src="frameworks/bootstrap.js"></script>
+<script type="text/javascript" src="frameworks/angular.js"></script>
+<script src="frameworks/angular-route.js"></script>
+<link rel="stylesheet" href="frameworks/font-awesome-4.3.0/css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" media="all" href="css/styles_git.css">
+<link href="assets/css/main.css" rel="stylesheet">
+<link href="css/stars.css" rel="stylesheet">
+
+<script type="text/javascript" src="js/loginApp.js"></script>
+<script type="text/javascript" src="views/user/user_info.js"></script>
+<script type="text/javascript" src="views/messages/messages.js"></script>
+<script type="text/javascript" src="views/login/login.js"></script>
+<script type="text/javascript" src="views/register/register.js"></script>
+<script type="text/javascript" src="views/message-modal/message-modal.js"></script>
+<script type="text/javascript" src="views/home/home.js"></script>
+
+<body ng-app="LoginApp">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#login"><i class="fa fa-terminal"></i>DRAFTSTAT</a>
+            </div>
+            <!-- navbar-header -->
+
+            <div class="navbar-collapse collapse" ng-controller="NavCtrl">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a data-toggle="modal" data-target="#myModal" href="#login" ng-show="!currentUser">REGISTER / SIGN IN &nbsp;<i class="fa fa-sign-in"></i></a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li ng-show="currentUser"><a href="#home">Home
+
+                        <i class="fa fa-home"></i></a></li>
+                        <li ng-show="currentUser"><a href="#user_info">Following
+
+                            <i class="fa fa-user"></i></a></li>
+                            <li ng-show="currentUser"><a href="#messages">Messages
+
+                                <i class="fa fa-envelope"></i></a></li>
+                                <li><a href="#login" ng-click="logout()" ng-show="currentUser">Sign Out
+
+                                    <i class="fa fa-sign-out"></i></a></li>
+                                </ul>
+                            </div>
+                            <!-- /.nav-collapse -->
+                        </div>
+                        <!-- container -->
+                    </div>
+                    <!-- navbar navbar-inverse navbar-fixed-top -->
+
+                    <!--Display the banner on the top-->
+                    <div id="headerwrap" ng-show="!currentUser">
+                        <div class="container">
+                            <div class="row centered">
+                            </div>
+                            <!-- row -->
+                        </div>
+                        <!-- container -->
+                    </div>
+                    <!-- headerwrap -->
+
+                    <!-- Display the div after the banner -->
+                    <div id="headwrap-1" ng-show="!currentUser">
+                        <div class="container">
+                            <div class="row centered">
+                                <div class="col-lg-8 col-lg-offset-2">
+                                    <h1>Are You Looking For Inspiration?</h1>
+                                    <h2><b>OR</b></h2>
+                                    <h2 style="font-color: #1975FF;">Have Ideas To Share?</h2>
+                                </div>
+
+                            </div>
+                            
+                            <!-- row -->
+                        </div>
+
+                        <!-- container -->
+                    </div>
+                    <!-- headwrap-1 -->
+
+
+                    <div class="container">
+                        <div ng-view>
+                        </div>
+                    </div>
+                    <br><hr ng-show="!currentUser">
+
+                    <div class="container w" ng-show="!currentUser">
+                        <div id="headwrap-1">
+                        <div class="container">
+                            <div class="row centered">
+                                <img id="img" src="assets/img/collaborate.jpg"></img>
+
+                            </div>
+                            
+                            <!-- row -->
+                        </div>
+
+                        <!-- container -->
+                    </div>
+
+
+                       <div class="row centered">
+                        <br>
+                        <div class="col-lg-4">
+                            <i class="fa fa-folder"></i><br><br>
+                            <h4>COLLABORATE</h4>
+                            <p>View Git Repos, collaborate and build beautiful softwares together.</p>
+                        </div><!-- col-lg-4 -->
+
+                        <div class="col-lg-4">
+                            <i class="fa fa-share-alt"></i><br><br>
+                            <h4>CONNECT AND SHARE</h4>
+                            <p>Connect and gain the opportunity to to share skills and ideas.</p>
+                        </div><!-- col-lg-4 -->
+
+                        <div class="col-lg-4">
+                            <i class="fa fa-star"></i><br><br>
+                            <h4>FOLLOW, RATE AND COMMUNICATE</h4>
+                            <p>Follow, Rate and send messages to people
+                        you think are "Quirky" enough!.</p>
+                        </div><!-- col-lg-4 -->
+                    </div><!-- row -->
+                </div>
+                <hr ng-show="!currentUser"><br>
+
+                <!-- row -->
+
+                <div class="container dg" ng-show="!currentUser">
+                  <div class="row centered">
+                   <br><br>
+                   <div class="col-lg-8 col-lg-offset-2">
+                    <h2 style="font-color: #1975FF;">
+                        Some Of The Technologies Being Used For Projects
+                    </h2><br><br><br>
+                </div>
+
+            </div>
+            <div class="col-lg-4">
+                <img src="assets/img/python.png" /><br /><br />
+                <h4>PYHTON</h4>
+                <p>Python is a widely used general-purpose, high-level programming language. Its design philosophy emphasizes code readability, and its syntax allows programmers to express concepts in fewer lines of code than would be possible in languages.</p>
+            </div><!-- col-lg-4 -->
+
+            <div class="col-lg-4">
+                <img src="assets/img/java.png" /><br /><br />
+                <h4>JAVA</h4>
+                <p>Java is a general-purpose computer programming language that is concurrent, class-based, object-oriented, and specifically designed to have as few implementation dependencies as possible. It is intended to let application developers "write once, run anywhere".</p>
+            </div><!-- col-lg-4 -->
+
+            <div class="col-lg-4">
+                <img src="assets/img/perl.png" /><br /><br />
+                <h4>PERL</h4>
+                <p>Perl is a family of high-level, general-purpose, interpreted, dynamic programming languages. The Perl languages borrow features from other programming languages including C, shell scripting (sh), AWK, and sed. They provide powerful text processing facilities without the arbitrary data-length limits of many contemporary Unix commandline tools, facilitating easy manipulation of text files.</p>
+            </div><!-- col-lg-4 -->
+
+            <div class="col-lg-4">
+                <img src="assets/img/html5.png" /><br /><br />
+                <h4>HTML5</h4>
+                <p>HTML5 is a core technology markup language of the Internet used for structuring and presenting content for the World Wide Web. Its core aims have been to improve the language with support for the latest multimedia while keeping it easily readable by humans and consistently understood by computers and devices.</p>
+            </div><!-- col-lg-4 -->
+
+            <div class="col-lg-4">
+                <img src="assets/img/bootstrap.png" /><br /><br />
+                <h4>BOOTSTRAP</h4>
+                <p>Bootstrap is a free and open-source collection of tools for creating websites and web applications. It contains HTML- and CSS-based design templates for typography, forms, buttons, navigation and other interface components, as well as optional JavaScript extensions.</p>
+            </div><!-- col-lg-4 -->
+
+
+            <div class="col-lg-4">
+                <img src="assets/img/nodejs.png" /><br /><br />
+                <h4>NODE.JS</h4>
+                <p>Node.js is an open source, cross-platform runtime environment for server-side and networking applications. Node.js applications are written in JavaScript, and can be run within the Node.js runtime. Node.js uses the Google V8 JavaScript engine to execute code, and a large percentage of the basic modules are written in JavaScript. Node.js contains a built-in library to allow applications to act as a Web server without software such as Apache HTTP Server or IIS.</p>
+            </div><!-- col-lg-4 -->
+
+
+            <div class="col-lg-4">
+                <img src="assets/img/angularjs.png" /><br /><br />
+                <h4>ANGULAR.JS</h4>
+                <p>AngularJS, commonly referred to as Angular, is an open-source web application framework maintained by Google and a community of individual developers and corporations to address many of the challenges encountered in developing single-page applications. Its goal is to simplify both development and testing of such applications by providing a framework for client-side model–view–controller (MVC) architecture, along with components commonly used in rich internet applications.</p>
+            </div><!-- col-lg-4 -->
+
+
+                <div class="col-lg-4">
+                    <img src="assets/img/mongo.png" /><br /><br />
+                    <h4>MONGODB</h4>
+                    <p>MongoDB (from humongous) is one of many cross-platform document-oriented databases. Classified as a NoSQL database, MongoDB eschews the traditional table-based relational database structure in favor of JSON-like documents with dynamic schemas (MongoDB calls the format BSON), making the integration of data in certain types of applications easier and faster.</p>
+                </div><!-- col-lg-4 -->
+
+            </div><!-- row -->
+
+
+
+            <br>
+            <br>
+        </div><!-- container -->
+
+
+        <!-- FEATURE SECTION -->
+        <div class="container-fluid" id="lg">
+           <br><br>
+           <div class="col-lg-8 col-lg-offset-2">
+            <h4>CREATING NEW SOFTWARES TOGETHER!</h4>
+            <p>"I believe in collaboration and building beautiful softwares that help in making the lives of people easier. It is imperative in my opinion to connect people belonging to different backgrounds and interest areas as it will create opportunities for them to share their skills and expand their learning horizons, which will benefit everyone ultimately." - Rahul Bahal</p>
+            <p><br/></p>
+        </div>
+        <div class="col-lg-2"></div>
+    </div><!-- container -->
+
+
+
+
+    <!-- FOOTER -->
+    <div id="f">
+        <div class="container">
+            <div class="row centered">
+                <a href="https://www.linkedin.com/in/rahulbahal"><i class="fa fa-linkedin"></i></a><<a href="https://www.facebook.com/bahal.rahul"><i class="fa fa-facebook"></i></a>
+                <a href="http://www.github.com/rahulbahal7"><i class="fa fa-github"></i></a>
+
+            </div>
+            <!-- row -->
+        </div>
+        <!-- container -->
+    </div>
+    <!-- Footer -->
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.1/ui-bootstrap-tpls.min.js"></script>

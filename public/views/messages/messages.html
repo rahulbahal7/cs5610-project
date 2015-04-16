@@ -1,0 +1,24 @@
+<div class="spl">
+    <h1 ng-show="currentUser">Messages</h1>
+    <table class="table table-striped" ng-controller="MessageCtrl" ng-show="currentUser">
+        <div class="row">
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>From</th>
+                    <th>Message</th>
+                </tr>
+            </thead>
+        </div>
+        <tbody>
+            <tr ng-repeat="message in msgs">
+                <td>{{message.time}}
+                </td>
+                <td>{{message.sender}}
+                </td>
+                <td>{{message.message}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

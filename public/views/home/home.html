@@ -1,0 +1,83 @@
+<div class="container spl" ng-show="display_name">
+    <h2 align="right" >Welcome {{display_name}} !!</h2>
+    <div id="w" ng-controller="GitHubCtrl">
+            <div class="container">
+                <p align ="center">Search for quirky people with cool projects here..</p>
+                <center>
+                <input type="text" id="ghusername" ng-model="username" placeholder="Enter Github username...">
+                <a href="#home" id="ghsubmitbtn" ng-click="getGitInfo()">Search!</a>
+                </center>
+                <div id="ghapidata" class="clearfix"></div>
+            </div>
+            <div ng-show="userNotFound">
+                <h2>No User Info Found</h2>
+            </div>
+            <div ng-show="loaded">
+
+                <h2>{{user.name}}
+                 <span class="smallname">(@<a href="{{user.html_url}}" target="_blank"> {{user.login}} </a>)</span>
+                </h2>
+
+                <div class="ghcontent" ng-controller="GitHubCtrl">
+                    <div class="avi">
+                        <a href="{{ user.html_url }}" target="_blank">
+                            <img src="{{ user.avatar_url }}" width="80" height="80" alt="{{ user.login }}"></a>
+                    </div>
+                    Followers: {{ user.followers }} - Following: {{ user.following }}<br>
+                    Repos: {{ user.public_repos }}</p>
+                </div>
+
+                <div class="repolist clearfix">
+                    <p ng-hide="reposFound">No repos!</p>
+
+                    <div ng-show="reposFound">
+                        <p><strong>Repos List:</strong></p>
+                        <ul ng-repeat="repo in repos">
+                            <li><a href="{{repo.html_url}}" target="_blank">{{repo.name}}</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-show="searchItems">
+                <hr>
+                <br>
+                <h2>Results<em>(30 Results per page)</em></h2>
+                <h3>Enter Page Number (E.g: 1, 2, 3 ..)</h3>
+                <br />
+                <div class="input-group">
+
+                    <input type="text" class="form-control" id="Text1" ng-model="page_no" placeholder="Enter Page Number(30 results per page)">
+                    <span class="input-group-btn">
+                        <button type="button" ng-click="getGitInfo()" class="btn btn-default">Search</button>
+                    </span>
+                </div>
+            </div>
+
+            <table class="table table-striped" ng-show="searchItems" ng-controller="UserInfoController">
+                <div class="row">
+                    <thead>
+                        <tr>
+                            <th>{{lower_bound}} - {{upper_bound}} ({{totalResults}})</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                </div>
+        </div>
+        <tbody>
+            <tr ng-repeat="u in searchItems">
+                <td>
+                    <img src="{{ u.avatar_url }}" width="80" height="80" alt="{{ u.login }}">
+                </td>
+
+                <td>{{u.login}}</td>
+                <td ng-init="UserInfoController.initialize(u)">
+                    <button ng-show="currentUser" ng-click="addUser(u.login)" type="button" class="btn btn-success pull-right">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+        </table>
+</div>

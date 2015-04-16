@@ -1,0 +1,53 @@
+<div class="spl">
+
+    <h4>Select a user to view his/her Details</h4>
+    <table class="table table-striped" ng-controller="ProfileCtrl" ng-show="currentUser">
+        <tr>
+            <thead>
+                <td>Name</td>
+                <td>Github Username</td>
+                <td>Email</td>
+                <td>Public Repos</td>
+            </thead>
+        </tr>
+        <tr>
+            <td>{{username}}
+            </td>
+            <td>
+                <a href="{{git_url}}" target="_blank">{{github_username}}</a>
+            </td>
+            <td>{{email}}
+            </td>
+            <td>{{public_repos}}
+            </td>
+        </tr>
+    </table>
+
+    <table class="table table-striped" ng-controller="ProfileCtrl" ng-show="currentUser">
+        <div class="row">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th style="text-align: center">Rating</th>
+                </tr>
+            </thead>
+        </div>
+
+        <tr ng-repeat="uname in following">
+            <td>{{uname.name}}</td>
+            <td align="center">
+                <div ng-init="rating = uname.stars"></div>
+
+                <div class="star-rating" star-rating rating-value="rating"
+                    data-max="20" on-rating-selected="rateFunction(rating, uname)">
+                </div>
+            </td>
+            <td>
+                <button class="pull-right" ng-click="UserDetails(uname)"><i class="fa fa-search"></i></button>
+                &nbsp;&nbsp; 
+            <button class="pull-right" ng-click="newMessage(uname)"><i class="fa fa-envelope"></i></button>
+                &nbsp;&nbsp; 
+            </td>
+        </tr>
+    </table>
+</div>

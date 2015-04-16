@@ -1,0 +1,60 @@
+<h2>{{errorMessage}}</h2>
+
+<!-- MODAL FOR LOGIN -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" ng-show="!currentUser" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">SIGN IN</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row centered">
+                    <form class="navbar-form" ng-show="!currentUser">
+                        <div class="form-group">
+                            <input type="text" ng-model="user.username" placeholder="Username" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" ng-model="user.password" placeholder="Password" class="form-control">
+                        </div>
+                        <button ng-click="login(user)" id="loginbtn" class="btn btn-success pull-right" data-dismiss="modal">SIGN IN</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- MODAL FOR REGISTER -->
+            <div class="modal-header">
+                <h4 class="modal-title" id="H1">REGISTER</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row centered">
+                    <form class="navbar-form" ng-show="!currentUser">
+                        <div class="form-group">
+                            <input type="text" ng-model="user1.username" placeholder="Username" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" ng-model="user1.password" placeholder="Password" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" ng-model="user1.password2" placeholder="Confirm Password" class="form-control">
+                        </div>
+                        <br />
+                        <br />
+                        <div class="form-group pull-right">
+                            <button ng-click="register(user1)" id="Button1" class="btn btn-primary" data-dismiss="modal">REGISTER</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <input type="button" class="btn btn-danger" data-dismiss="modal" onclick="location.href = 'http://www.github.com'" value="Forgot Password?">
+            </div>
+
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
